@@ -9,5 +9,5 @@ if (environment.production) {
 }
 setTimeout(function () {
     platformBrowserDynamic().bootstrapModule(AppModule);
-}, 5000);
+}, 2000);
 
