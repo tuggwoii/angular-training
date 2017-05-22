@@ -1,0 +1,55 @@
+﻿<div class="col-md-12 section left">
+  <h1>{{title}}</h1>
+
+  <blockquote class="top-space">
+    <b>What is it?</b>
+    <br/>
+    <br />
+    How we going to handle or serve the html determind by requested URL
+  </blockquote>
+</div>
+
+<div class="col-md-12 section blue left">
+  <h1>SETUP</h1>
+
+  <div class="block">
+    <blockquote class="top-space">
+      <b>Add &lt;base href="/"&gt; to head tag</b>
+    </blockquote>
+    <p>
+      Most routing applications should add a base element to the index.html as the first child in the
+      head tag to tell the router how to compose navigation URLs.
+    </p>
+  </div>
+  
+  <div class="block">
+    <blockquote class="top-space">
+      <b>Import router</b>
+
+    </blockquote>
+    <p>import {{'{'}} RouterModule, Routes {{'}'}} from '@angular/router';</p>
+
+  </div>
+
+  <div class="block">
+    <blockquote class="top-space">
+      <b>Create routes and register on module</b>
+    </blockquote>
+    <img src="/img/fg1.png" />
+  </div>
+
+
+  <div class="block">
+    <blockquote class="top-space">
+      <b>Route object</b>
+    </blockquote>
+    <p>
+      <b>Path:</b> Specify the URL path to handle the request, can be add like 'path/:id' to attach parameter id to the URL path example request 'path/1' this will work by attach id = 1. '**' mean if not match any then using this (default)
+    </p>
+    <p><b>Component:</b> Specify the handler component</p>
+    <p><b>redirectTo:</b> Specify the path to reditrec to</p>
+    <p><b>pathMatch:</b> Specify condition to redirect ['full', 'prefix']. Full = match exactly, prefix = begin with </p>
+    <p><b>data:</b> Attach data with route config</p>
+  </div>
+
+</div>

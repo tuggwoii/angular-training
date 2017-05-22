@@ -4,12 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AppRouter } from './modules/routers/router';
-import { ContentComponent } from './modules/content/content.component';
-import { RouteChapterComponent } from './modules/route-chapter/route-chapter.component';
-import { NotFoundComponent } from './modules/not-found/not-found.component';
-import { NavigationComponent } from './modules/navigation/navigation.component';
+import { AppRouter } from './components/routers/router';
+import { ContentComponent } from './components/content/content.component';
+import { RouteChapterComponent } from './components/route-chapter/route-chapter.component';
+import { NgModuleChapterComponent } from './components/ngmodule/ngmodule.component';
+import { DependencyChapterComponent } from './components/dependency/dependency.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { RouteIdComponent } from './components/route-chapter/route-id.component';
 import { State } from './services/state';
+import { Helpers } from './services/helpers';
 import { Event } from './events/event';
 import { Broadcaster } from './events/broadcaster';
 
@@ -18,8 +22,11 @@ import { Broadcaster } from './events/broadcaster';
         AppComponent,
         ContentComponent,
         RouteChapterComponent,
+        RouteIdComponent,
         NotFoundComponent,
-        NavigationComponent
+        NavigationComponent,
+        NgModuleChapterComponent,
+        DependencyChapterComponent
     ],
     imports: [
         BrowserModule,
@@ -30,7 +37,8 @@ import { Broadcaster } from './events/broadcaster';
     providers: [
         State,
         Event,
-        Broadcaster
+        Broadcaster,
+        Helpers
     ],
     bootstrap: [AppComponent]
 })

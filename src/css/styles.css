@@ -183,6 +183,10 @@ a.menu {
   animation-duration: .5s;
   animation-delay: .1s;
 }
+.section h1 {
+  margin-bottom: 30px;
+}
+
 @media (max-width:1250px) {
   .space-bottom {
     padding-bottom: 200px;
