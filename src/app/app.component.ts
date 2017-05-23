@@ -24,11 +24,11 @@ export class AppComponent {
     }
 
     private setPageHeader(route): void {
-        var isMatchAny = false;
-        var notFound;
+        let isMatchAny = false;
+        let notFound;
         this.router.config.filter((routeConfig) => {
-            var actualRoute = route.urlAfterRedirects ? route.urlAfterRedirects : route.url;
-            if (this.helpers.compareUrlWithRouteConfig(actualRoute, routeConfig.path)) {
+            let actualRoute = route.urlAfterRedirects ? route.urlAfterRedirects : route.url;
+            if (this.helpers.compareUrlWithRouteConfig(actualRoute, routeConfig.path, routeConfig.children)) {
                 if (routeConfig.data) {
                     var title = routeConfig.data['title'];
                     this.state.setPageTitle(title);
@@ -40,7 +40,6 @@ export class AppComponent {
             }
         });
         if (!isMatchAny) {
-            console.log(notFound.data.title);
             this.state.setPageTitle(notFound.data? notFound.data.title : '');
         }
     }

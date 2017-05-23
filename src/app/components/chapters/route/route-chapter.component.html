@@ -1,0 +1,191 @@
+﻿<div class="col-md-12 section left">
+  <h1>{{title}}</h1>
+
+  <blockquote class="top-space">
+    <b>What is it?</b>
+    <br />
+    <br />
+    How we going to handle or serve the html determind by requested URL
+  </blockquote>
+
+</div>
+
+<div class="col-md-12 section grey left">
+  <h1>SETUP & BASIC</h1>
+
+  <div class="block">
+    <blockquote>
+      <b>Add &lt;base href="/"&gt; to head tag</b>
+    </blockquote>
+    <p>
+      Most routing applications should add a base element to the index.html as the first child in the
+      head tag to tell the router how to compose navigation URLs.
+    </p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Import router</b>
+
+    </blockquote>
+    <p>import {{'{'}} RouterModule, Routes {{'}'}} from '@angular/router';</p>
+
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Create routes and register on module</b>
+    </blockquote>
+    <img src="/img/fg1.png" />
+  </div>
+
+
+  <div class="block">
+    <blockquote>
+      <b>Route object</b>
+    </blockquote>
+    <p>
+      <b>Path:</b> Specify the URL path to handle the request, can be add like 'path/:id' to attach parameter id to the URL path example request 'path/1' this will work by attach id = 1. '**' mean if not match any then using this (default)
+    </p>
+    <p><b>Component:</b> Specify the handler component</p>
+    <p><b>redirectTo:</b> Specify the path to reditrec to</p>
+    <p><b>pathMatch:</b> Specify condition to redirect ['full', 'prefix']. Full = match exactly, prefix = begin with </p>
+    <p><b>data:</b> Attach data with route config</p>
+  </div>
+
+  <div class="block">
+    <blockquote>Router outlet, RouterLink & RouterLinkActive</blockquote>
+    <p>Add &lt;router-outlet&gt;&lt;/router-outlet&gt; in the HTML that we want the views to switching by route</p>
+    <p>Add routerLinkActive="active", which "active" is a css class name for active the navigation </p>
+    <p>Add routerLink="/link" to create a link, which "/link" is the URL that match with route configuration</p>
+    <img src="/img/fg2.png" />
+  </div>
+
+  <div class="block">
+    <blockquote>Navigate by code</blockquote>
+    <p>Do this to navigate by code: this.router.navigate('/link');</p>
+    <p>Including the parameter: this.router.navigate(['/link', id]);</p>
+    <button class="btn btn-success" (click)="navigateTo('/')">BACK TO HOME</button>
+    <button class="btn btn-success" (click)="navigateWithParameter('/routes', 66)">ROUTE: 66</button>
+  </div>
+
+</div>
+
+<div class="col-md-12 section left">
+  <h1>ADVANCES</h1>
+
+  <div class="block">
+    <blockquote class="space-top">
+      <b>Retrive route parameters</b>
+    </blockquote>
+    <p>Subscribe route parametors on ngOnInit() of the component</p>
+    <code>
+      this.routeSubscribe = this.route.params.subscribe(params => {{'{'}} <br />
+      <sub> this.id = + params['id'];</sub> <br />
+      {{'}'}});
+    </code>
+  </div>
+
+  <div class="block">
+    <blockquote class="space-top">
+      <b>Optional parameters</b>
+    </blockquote>
+    <p>Use following code to include optional parameters:</p>
+    <code>
+      this.router.navigate(['/link', {{'{'}} opt1: 'foo', opt2: 'bar' {{'}'}}]); <br />
+      or <br />
+      this.router.navigate(['/link', 99, {{'{'}} opt1: 'foo', opt2: 'bar' {{'}'}}]);
+    </code>
+    <br /><br />
+    <p>Retrive optional route parameters is the same as normal route parameters</p>
+    <button class="btn btn-success" (click)="navigateWithParameters('/routes', 99, 'foo', 'bar')">Try it</button>
+  </div>
+
+  <div class="block">
+    <blockquote class="space-top">
+      <b>Adding animations to the routed component</b>
+    </blockquote>
+    <p>First we need to install animation package: (new version need to install separately, but the old on is included) </p>
+    <code>npm install @angular/animations</code>
+    <br /><br />
+    <p>Then import BrowserAnimationModule to AppModule</p>
+    <code>import {{'{'}} BrowserAnimationsModule {{'}'}} from '@angular/platform-browser/animations';</code>
+    <br /><br />
+    <p>Then create folder call animatins and create file name animation.ts inside the folder</p>
+    <p>
+      <code>animation.ts</code>
+    </p>
+    <img src="/img/fg3.png" />
+    <br /><br />
+    <p>
+      This file does the following:
+    </p>
+    <p>
+      1.Imports the animation symbols that build the animation triggers, control state, and manage transitions between states.
+    </p>
+    <p>
+      2.Exports a constant named slideInDownAnimation set to an animation trigger named routeAnimation; animated components will refer to this name.
+    </p>
+    <p>
+      3.Specifies the wildcard state , *, that matches any animation state that the route component is in.
+    </p>
+    <p>
+      4.Defines two transitions, one to ease the component in from the left of the screen as it enters the application view (:enter), the other to animate the component down as it leaves the application view (:leave).
+    </p>
+    <br />
+    <br />
+    <p>After that import animate.ts to the component, add animation to animations array ofther component, then add host (trigger name of the animation)</p>
+    <img src="/img/fg4.png" />
+    <br />
+    <br />
+    <button class="btn btn-success" (click)="navigateTo('/animation')">Try</button>
+  </div>
+
+  <div class="block">
+    <blockquote class="space-top">
+      <b>Child route</b>
+    </blockquote>
+    <img src="/img/fg5.png" />
+    <br />
+    <br />
+    <p>Add another &lt;router-outlet&gt;&lt;/router-outlet&gt; in the HTML of sub root component</p>
+    <p>We can jsut register "children" in route configuration, but for best practice we should separate route for sub component</p>
+    <p>Example:</p>
+    <img src="/img/fg6.png" />
+    <br />
+    <br />
+    <p>Then register it on AppRouteModule</p>
+    <img src="/img/fg7.png" />
+    <br />
+    <br />
+    <router-outlet></router-outlet>
+    <button class="btn btn-success" (click)="navigateTo('/routing/sub')">Go to sub route</button>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Route guards</b>
+    </blockquote>
+
+    <p>Create services as follow: </p>
+    <img src="/img/fg8.png" />
+    <br />
+    <br />
+
+    <p>Add RouteGard to route config on "canActivate" property: </p>
+    <img src="/img/fg9.png" />
+    <br />
+    <br />
+
+    <p>Then you can put whatever logic there</p>
+  </div>
+
+  <div class="block">
+    <blockquote>Pre-Fetch data before navigating</blockquote>
+    <p>Fetching data pattern are separate into 2 ways</p>
+    <p>1. Enter the page --> Display load indicator --> Fetch --> Display</p>
+    <p>2. Display load indicator --> Fetch --> Navigate to the page ---> Display</p>
+    <p>The first one is most popular way to do it, but sometime we may want to fetch the data before enter the page</p>
+    <button class="btn btn-success" (click)="navigateTo('/routing/sub')">Go to sub route</button>
+  </div>
+</div>

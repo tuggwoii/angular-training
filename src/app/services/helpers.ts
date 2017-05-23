@@ -3,18 +3,17 @@
 @Injectable()
 export class Helpers {
 
-    public compareUrlWithRouteConfig(url, route): boolean {
+    public compareUrlWithRouteConfig(url, route, childs): boolean {
         var isMatch = false;
         var requestURL = this.removeTrailingSlash(url);
         var configURL = this.removeTrailingSlash('/' + route);
         var currentPaths = requestURL.split('/');
         var configPaths = configURL.split('/');
-
         if (currentPaths.length == configPaths.length) {
             var isMatches = true;
             for (var i = 0; i < currentPaths.length; i++) {
-                var isParamiter = configPaths[i].indexOf(':') > -1;
-                if (isParamiter) {
+                let isParameter = configPaths[i].indexOf(':') > -1;
+                if (isParameter) {
                     if (currentPaths[i].toLowerCase() == configPaths[i].toLowerCase()) {
                         isMatches = false;
                     }
@@ -29,12 +28,22 @@ export class Helpers {
                 isMatch = true;
             }
         }
+        else if (childs && childs.length && currentPaths.length > 2) {
+            if (currentPaths[0] == configPaths[0] && currentPaths[1] == configPaths[1]) {
+                for (var i = 0; i < childs.length; i++) {
+                    if (childs[i].path == currentPaths[2]) {
+                        isMatch = true;
+                    }
+                }
+            }
+        }
+
         return isMatch;
     }
 
     public forEach(arrs: Array<any>, handler: Function) {
         for (var i = 0; i < arrs.length; i++) {
-            handler(handler)
+            handler(arrs[i]);
         }
     }
 

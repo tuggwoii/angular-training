@@ -11,7 +11,14 @@
             }
         },
         watch: {
-            files: ['src/views/index.html', 'src/app/**/**.ts'],
+            files:
+            [
+                'src/main.ts',
+                'src/css/styles.css',
+                'src/views/index.html',
+                'src/app/**/**/**.ts',
+                'src/app/**/**/**.html'
+            ],
             tasks: ['shell']
         },
         shell: {

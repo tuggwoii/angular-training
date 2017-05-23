@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { BaseComponent } from '../base/base.component';
+import { BaseComponent } from '../../base/base.component';
 
 @Component({
     selector: 'ngmodule-chapter',

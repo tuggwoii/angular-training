@@ -3,9 +3,9 @@ import { BaseComponent } from '../base/base.component';
 
 @Component({
     selector: 'route-chapter',
-    templateUrl: 'route-chapter.component.html'
+    templateUrl: 'unauthorize.component.html'
 })
 
-export class RouteChapterComponent extends BaseComponent {
+export class UnAuthorizeComponent extends BaseComponent {
 
 }
