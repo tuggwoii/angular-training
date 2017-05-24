@@ -5,7 +5,8 @@
     <b>What is it?</b>
     <br />
     <br />
-    How we going to handle or serve the html determind by requested URL
+    <p>How we going to handle or serve the resources determind by requested URL</p>
+    <p>How we going to travel around the application</p>
   </blockquote>
 
 </div>
@@ -65,7 +66,7 @@
     <blockquote>Navigate by code</blockquote>
     <p>Do this to navigate by code: this.router.navigate('/link');</p>
     <p>Including the parameter: this.router.navigate(['/link', id]);</p>
-    <button class="btn btn-success" (click)="navigateTo('/')">BACK TO HOME</button>
+    <button class="btn btn-success" (click)="navigateTo(['/'])">BACK TO HOME</button>
     <button class="btn btn-success" (click)="navigateWithParameter('/routes', 66)">ROUTE: 66</button>
   </div>
 
@@ -185,7 +186,53 @@
     <p>Fetching data pattern are separate into 2 ways</p>
     <p>1. Enter the page --> Display load indicator --> Fetch --> Display</p>
     <p>2. Display load indicator --> Fetch --> Navigate to the page ---> Display</p>
-    <p>The first one is most popular way to do it, but sometime we may want to fetch the data before enter the page</p>
-    <button class="btn btn-success" (click)="navigateTo('/routing/sub')">Go to sub route</button>
+    <p>The first one is the most popular way to do it, but sometime we may want to fetch the data before enter the page, so resolver will help on this</p>
+    <img src="/img/fg10.png" />
+    <br />
+    <br />
+    <p>Then attach it to the route config</p>
+    <img src="/img/fg11.png" />
+    <br />
+    <br />
+    <p>Retrive data on ngOnInit using:</p>
+    <code> this.route.snapshot.data['dataname']</code>
+    <br />
+    <img src="/img/fg12.png" />
+    <br />
+    <br />
+    <button class="btn btn-success" (click)="navigateTo('/routes/66')">Try resolver</button>
   </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Asynchronous routing</b>
+    </blockquote>
+    <p>After adding many features we will notice that our app start to slow down on both load and compile time. It's because that the angular will start to compile after all required modules are loaded. If we have many components, modules, .. then the file size may be end up to 20mb, Loading 20mb through the internet to client with high speed internet maybe task 10 secs! It's mean that our app will ready in 10 seconds or longger which is not good.</p>
+    <p>So, Asynchronous or lazy load will take a part here</p>
+    <p>First of all we need to separate features into modules</p>
+    <p>Then setup lazy load route on the AppRoutingModule, from the image you'll see that we lazy load by using "loadChildren" property </p>
+    <p>We also need to specify module path and module class name (after #) in there</p>
+    <img src="/img/fg13.png" />
+    <br />
+    <br />
+    <p>Setup routes for module, similar as AppRoutingModule but a bit deferent (see image)</p>
+    <img src="/img/fg14.png" />
+    <br />
+    <br />
+    <p>Setup module and component</p>
+    <img src="/img/fg15.png" />
+    <img src="/img/fg16.png" />
+    <br />
+    <br />
+
+    <h2>preloadingStrategy</h2>
+    <p>We can add option to the route config to let app start pre-load lazy modules after all required modules has been loaded. If we did't set pre-load, then the app will load when we actually using it.</p>
+    <p>Set pre-load for all modules: import PreloadAllModules from angular/router</p>
+    <code>import {{'{'}} RouterModule, Routes, PreloadAllModules {{'}'}} from '@angular/router';</code>
+    <img src="/img/fg17.png" />
+    <br />
+    <br />
+    <p>We also can customize the preloding strategy ourself, but I'm not going to talk abut that here</p>
+  </div>
+
 </div>

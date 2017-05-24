@@ -9,7 +9,9 @@ var angularAssets = [
     '/vendor.bundle.js',
     '/vendor.bundle.js.map',
     '/main.bundle.js',
-    '/main.bundle.js.map'
+    '/main.bundle.js.map',
+    '/0.chunk.js',
+    '/0.chunk.js.map'
 ];
 module.exports = function (req, res, next) {
     if (angularAssets.indexOf(req.baseUrl) > -1) {

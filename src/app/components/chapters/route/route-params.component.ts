@@ -23,6 +23,8 @@ export class RouteParameterComponent extends BaseComponent {
             this.params2 = params['opt2'];
         });
         this.predata = this.route.snapshot.data['predata'];
+
+        console.log('Pre-data', this.predata);
     }
 
     constructor(public state: State, public route: ActivatedRoute) {

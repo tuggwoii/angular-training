@@ -4,11 +4,13 @@
 export class Helpers {
 
     public compareUrlWithRouteConfig(url, route, childs): boolean {
+
         var isMatch = false;
         var requestURL = this.removeTrailingSlash(url);
         var configURL = this.removeTrailingSlash('/' + route);
         var currentPaths = requestURL.split('/');
         var configPaths = configURL.split('/');
+
         if (currentPaths.length == configPaths.length) {
             var isMatches = true;
             for (var i = 0; i < currentPaths.length; i++) {
@@ -37,7 +39,6 @@ export class Helpers {
                 }
             }
         }
-
         return isMatch;
     }
 
@@ -48,9 +49,12 @@ export class Helpers {
     }
 
     public removeTrailingSlash(url) {
-        if (url.substr(-1) === '/') {
-            return url.substr(0, url.length - 1);
+        if (url) {
+            if (url.substr(-1) === '/') {
+                return url.substr(0, url.length - 1);
+            }
+            return url;
         }
-        return url;
+        return '';
     }
 }

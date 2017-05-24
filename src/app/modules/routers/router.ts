@@ -1,6 +1,6 @@
 ﻿import { Injectable, NgModule } from '@angular/core';
 import { ContentComponent } from '../../components/content/content.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { RouteChapterComponent } from '../../components/chapters/route/route-chapter.component';
 import { RouteParameterComponent } from '../../components/chapters/route/route-params.component';
 import { NgModuleChapterComponent } from '../../components/chapters/ngmodule/ngmodule-chapter.component';
@@ -43,7 +43,7 @@ const routes: Routes = [
         component: RouteParameterComponent,
         data: { title: 'ROUTING WITH ID' },
         resolve: {
-            preedata: Resolver
+            predata: Resolver
         }
     },
     {
@@ -67,6 +67,10 @@ const routes: Routes = [
         data: { title: 'PERMISSION DENIED' }
     },
     {
+        path: 'lazy',
+        loadChildren: 'app/modules/lazy/lazy.module#LazyModule'
+    },
+    {
         path: '**',
         component: NotFoundComponent,
         data: { title: 'RESOURCES NOT FOUND' }
@@ -75,7 +79,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
     ],
     exports: [
         RouterModule

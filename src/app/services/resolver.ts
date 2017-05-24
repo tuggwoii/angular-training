@@ -12,7 +12,9 @@ export class Resolver implements Resolve<any> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> {
         return new Promise((resolve, reject) => {
             this.http.get('/api/data').subscribe((data) => {
-                resolve(data);
+                setTimeout(() => {
+                    resolve(data.json());
+                }, 0);
             });
         });
     }

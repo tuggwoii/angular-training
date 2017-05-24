@@ -11,7 +11,7 @@ import { Resolver } from "app/services/resolver";
     animations: [
         slideInDownAnimation
     ],
-    host: { '[@routeAnimation]': '' }
+    //host: { '[@routeAnimation]': '' }
 })
 
 export class RouteChapterComponent extends BaseComponent {
