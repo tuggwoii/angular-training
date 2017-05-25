@@ -1,11 +1,13 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 //modules
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './modules/routers/router';
+import { SupportModule } from "app/modules/supports/support.module";
 
 //services
 import { State } from './services/state';
@@ -13,6 +15,7 @@ import { Helpers } from './services/helpers';
 import { Event } from './events/event';
 import { Broadcaster } from './events/broadcaster';
 import { RouteGuard } from "app/services/route-gard.service";
+import { Resolver } from "app/services/resolver";
 
 //components
 import { AppComponent } from './app.component';
@@ -27,7 +30,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { RouteParameterComponent } from './components/chapters/route/route-params.component';
 import { AnimationComponent } from "app/components/chapters/route/animation.component";
 import { UnAuthorizeComponent } from "app/components/unauthorize/unauthorize.component";
-import { Resolver } from "app/services/resolver";
+import { TitleComponent } from "app/components/title/title.component";
+
+//directives
+import { HighlightDirective } from "app/directives/highlight.directive";
 
 
 @NgModule({
@@ -43,14 +49,17 @@ import { Resolver } from "app/services/resolver";
         AnimationComponent,
         SubRouteComponent,
         AdminComponent,
-        UnAuthorizeComponent
+        UnAuthorizeComponent,
+        HighlightDirective,
+        TitleComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         AppRoutingModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        SupportModule
     ],
     providers: [
         State,

@@ -2,54 +2,118 @@
   <h1>{{title}}</h1>
 
   <blockquote class="top-space">
-    <b>What is it?</b>
-    <br />
-    <br />
-    How we going to handle or serve the html determind by requested URL
+    NgModules help organize an application into cohesive blocks of functionality.
+    An NgModule is a class adorned with the @NgModule decorator function. @NgModule takes a metadata object that tells Angular how to compile and run module code. It identifies the module's own components, directives, and pipes, making some of them public so external components can use them. @NgModule may add service providers to the application dependency injectors. And there are many more options covered here.
   </blockquote>
 </div>
 
 <div class="col-md-12 section blue left">
-  <h1>SETUP</h1>
+  <h1>Application root module</h1>
 
   <div class="block">
     <blockquote class="top-space">
-      <b>Add &lt;base href="/"&gt; to head tag</b>
+      <b>Structure</b>
     </blockquote>
-    <p>
-      Most routing applications should add a base element to the index.html as the first child in the
-      head tag to tell the router how to compose navigation URLs.
-    </p>
+    <img src="/img/fg18.png" />
+    <br/><br />
+    <p>import {{'{'}} NgModule {{'}'}} from '@angular/core';</p>
+    <p><b>imports:</b> Another modules that we want to import into the current module</p>
+    <p><b>declarations:</b> register componene, services, directive to the module</p>
+    <p><b>bootstrap:</b> specify first component to compile (root component)</p>
   </div>
 
   <div class="block">
-    <blockquote class="top-space">
-      <b>Import router</b>
-
+    <blockquote>
+      <b>Dynamic bootstrapping with the just-in-time (JIT) compiler</b>
     </blockquote>
-    <p>import {{'{'}} RouterModule, Routes {{'}'}} from '@angular/router';</p>
+    <p> the first, dynamic option, the Angular compiler compiles the application in the browser and then launches the app</p>
+    <code>main.ts</code>
+    <br />
+    <code>platformBrowserDynamic().bootstrapModule(AppModule);</code>
+    <br /><br />
+    <blockquote>
+      <b>Static bootstrapping with the ahead-of-time (AOT) compiler</b>
+    </blockquote>
+    <p>Consider the static alternative which can produce a much smaller application that launches faster, especially on mobile devices and high latency networks.</p>
+    <code>main.ts</code>
+    <br />
+    <code>platformBrowser().bootstrapModuleFactory(AppModule);</code>
+    <br /><br />
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Declare directives and components</b>
+      <p>Directive will focus on access and midify DOM element</p>
+      <p>Component will focus fuc</p>
+    </blockquote>
+    <p>Example directive</p>
+    <img src="/img/fg19.png" />
+    <br /><br />
+
+    <p>Then attach to AppModule</p>
+    <img src="/img/fg20.png" />
+    <br /><br />
+
+    <p>How to use it?</p>
+    <img src="/img/fg21.png" />
+    <br /><br />
+    <p highlight="gold">Here</p>
+
+    <br /><br />
+    <p>Exampl Component</p>
+    <img src="/img/fg22.png" />
+    <br /><br />
+    <p>Then attach to AppModule</p>
+    <img src="/img/fg23.png" />
+    <br /><br />
+
+    <p>How to use it?</p>
+    <img src="/img/fg24.png" />
+    <br /><br />
+    <title-component title="Hi, I am title component"></title-component>
 
   </div>
 
   <div class="block">
-    <blockquote class="top-space">
-      <b>Create routes and register on module</b>
+    <blockquote>
+      <b>Service providers</b>
     </blockquote>
-    <img src="/img/fg1.png" />
+    <p>Modules are a great way to provide services for all of the module's components.</p>
+    <p>Example services</p>
+    <img src="/img/fg25.png" />
+    <br /><br />
+    <p>Then attach to AppModule in the provider section</p>
+    <img src="/img/fg26.png" />
+    <br /><br />
+    <p>How to use it?</p>
+    <img src="/img/fg27.png" />
+    <br /><br />
   </div>
-
 
   <div class="block">
-    <blockquote class="top-space">
-      <b>Route object</b>
+    <blockquote>
+      <b>Import supporting modules</b>
     </blockquote>
-    <p>
-      <b>Path:</b> Specify the URL path to handle the request, can be add like 'path/:id' to attach parameter id to the URL path example request 'path/1' this will work by attach id = 1. '**' mean if not match any then using this (default)
-    </p>
-    <p><b>Component:</b> Specify the handler component</p>
-    <p><b>redirectTo:</b> Specify the path to reditrec to</p>
-    <p><b>pathMatch:</b> Specify condition to redirect ['full', 'prefix']. Full = match exactly, prefix = begin with </p>
-    <p><b>data:</b> Attach data with route config</p>
+     <p>We can import another module to the root module to inject component directive and services from them, we call that module as a supporting module</p>
+     <p>Put any component directive and services in the <b>exports array</b> on the module to export them to the root module</p>
+    <br />
+    <img src="/img/fg28.png" />
+    <br /><br />
+    <p>Example using rotate directive from support module</p>
+    <span rotate="7">Hi</span>
   </div>
 
+  <div class="block">
+    <blockquote>
+      <b>Resolve directive conflicts</b>
+    </blockquote>
+    <p>What will happen if we have the same directive name and same selector?</p>
+    <p>Exmaple</p>
+    <p highlight="gold">Here</p>
+    <p>Who is compile lately will take the effect</p>
+    <br/><br/>
+    <p>What will happen if we have the same component name and same selector?</p>
+    <p>..ERROR</p>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params  } from "@angular/router";
 import { State } from '../../services/state';
 
@@ -6,7 +6,7 @@ import { State } from '../../services/state';
 
 })
 
-export class BaseComponent {
+export class BaseComponent implements OnInit {
 
     public id: number;
     public title: string;
@@ -15,6 +15,7 @@ export class BaseComponent {
 
     ngOnInit() {
         this.title = this.state.getPageTitle();
+        this.route.data.subscribe
         this.routeSubscribe = this.route.params.subscribe(params => {
             this.id = + params['id'];
         });

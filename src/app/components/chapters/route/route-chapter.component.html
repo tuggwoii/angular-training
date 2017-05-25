@@ -64,9 +64,9 @@
 
   <div class="block">
     <blockquote>Navigate by code</blockquote>
-    <p>Do this to navigate by code: this.router.navigate('/link');</p>
+    <p>Do this to navigate by code: this.router.navigate(['/link']);</p>
     <p>Including the parameter: this.router.navigate(['/link', id]);</p>
-    <button class="btn btn-success" (click)="navigateTo(['/'])">BACK TO HOME</button>
+    <button class="btn btn-success" (click)="navigateTo('/')">BACK TO HOME</button>
     <button class="btn btn-success" (click)="navigateWithParameter('/routes', 66)">ROUTE: 66</button>
   </div>
 
@@ -233,6 +233,9 @@
     <br />
     <br />
     <p>We also can customize the preloding strategy ourself, but I'm not going to talk abut that here</p>
+    <br />
+    <br />
+    <button class="btn btn-success" (click)="navigateTo('/lazy')">Try Lazy load</button>
   </div>
 
 </div>

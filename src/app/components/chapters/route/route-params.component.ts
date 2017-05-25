@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { BaseComponent } from '../../base/base.component';
 import { State } from '../../../services/state';
@@ -9,7 +9,7 @@ import { State } from '../../../services/state';
     templateUrl: 'route-params.component.html'
 })
 
-export class RouteParameterComponent extends BaseComponent {
+export class RouteParameterComponent extends BaseComponent implements OnInit {
 
     public params1: string
     public params2: string
