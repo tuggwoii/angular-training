@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, NavigationEnd, ActivatedRouteSnapshot, RouterSt
 import { State } from './services/state';
 import { Helpers } from './services/helpers';
 import { Event } from './events/event';
+import { StorageService } from "app/modules/core/services/storage.service";
 
 @Component({
   selector: 'app-root',
@@ -16,11 +17,15 @@ export class AppComponent {
         ready: false
     };
 
-    constructor(private router: Router, private route: ActivatedRoute, private state: State, private ev: Event, private helpers : Helpers) {
+    constructor(private router: Router, private route: ActivatedRoute, private state: State, private ev: Event, private helpers: Helpers, private storage: StorageService) {
         this.router.events.subscribe((event) => {
             this.setPageHeader(event);
         });
         this.pageState.ready = true;
+
+        var text = 'Save This Text To Storage';
+        this.storage.saveText(text);
+        console.log('SET TEXT TO STOGARE SERVICE AS: ' + text);
     }
 
     private setPageHeader(route): void {

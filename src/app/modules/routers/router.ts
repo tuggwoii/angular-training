@@ -12,6 +12,7 @@ import { RouteChapterRoutes } from "app/routes/route-chapter.routes";
 import { AdminRoutes } from "app/routes/admin.routes";
 import { UnAuthorizeComponent } from "app/components/unauthorize/unauthorize.component";
 import { Resolver } from "app/services/resolver";
+import { InjectTreeComponent } from "app/components/chapters/dependency/components/inject-tree/inject-tree.component";
 
 const routes: Routes = [
     /*
@@ -36,7 +37,10 @@ const routes: Routes = [
     {
         path: 'dependency',
         component: DependencyChapterComponent,
-        data: { title: 'HIERARCHICAL DEPENDENCY INJECTORS' }
+        data: { title: 'HIERARCHICAL DEPENDENCY INJECTORS' },
+        children: [
+            { path: 'inject', component: InjectTreeComponent}
+        ]
     },
     {
         path: 'routes/:id',

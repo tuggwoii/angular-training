@@ -7,7 +7,7 @@
   </blockquote>
 </div>
 
-<div class="col-md-12 section blue left">
+<div class="col-md-12 section grey left">
   <h1>Application root module</h1>
 
   <div class="block">
@@ -113,7 +113,41 @@
     <p highlight="gold">Here</p>
     <p>Who is compile lately will take the effect</p>
     <br/><br/>
-    <p>What will happen if we have the same component name and same selector?</p>
+    <p>What will happen if we have the same component name and same selector? well...</p>
     <p>..ERROR</p>
   </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Feature modules</b>
+    </blockquote>
+    <p>Same as support module but have their own route instead of just directive and component...</p>
+    <p>See example on support module (about route of feature module see on route section)</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Shared modules</b>
+    </blockquote>
+    <p>Same as support module and  but have exports a lot of component and directive</p>
+    <p>Move any component and directive that use in many module to shared module instead</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Core modules</b>
+    </blockquote>
+    <p>Most of this module will be a service providers and some of the directive that nedd to be singleton</p>
+    <p>Example</p>
+    <div highlight="red">{{textInStorage}}</div>
+    <br /><br />
+    <p>But wait! what will happen when we import core module to anoter module</p>
+    <p>The answer is your service that you expected it to be singleton will create new instant and that will cause service providers lost their singleton.</p>
+    <p>To solve this problem we will need to add extra code to throw an error if that happen!</p>
+    <br/>
+    <img src="/img/fg29.png" />
+    <br /><br />
+  </div>
+
+
 </div>

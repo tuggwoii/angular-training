@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './modules/routers/router';
 import { SupportModule } from "app/modules/supports/support.module";
+import { CoreModule } from "app/modules/core/core.module";
 
 //services
 import { State } from './services/state';
@@ -31,6 +32,7 @@ import { RouteParameterComponent } from './components/chapters/route/route-param
 import { AnimationComponent } from "app/components/chapters/route/animation.component";
 import { UnAuthorizeComponent } from "app/components/unauthorize/unauthorize.component";
 import { TitleComponent } from "app/components/title/title.component";
+import { InjectTreeComponent } from "app/components/chapters/dependency/components/inject-tree/inject-tree.component";
 
 //directives
 import { HighlightDirective } from "app/directives/highlight.directive";
@@ -51,7 +53,8 @@ import { HighlightDirective } from "app/directives/highlight.directive";
         AdminComponent,
         UnAuthorizeComponent,
         HighlightDirective,
-        TitleComponent
+        TitleComponent,
+        InjectTreeComponent
     ],
     imports: [
         BrowserModule,
@@ -59,7 +62,8 @@ import { HighlightDirective } from "app/directives/highlight.directive";
         HttpModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        SupportModule
+        SupportModule,
+        CoreModule
     ],
     providers: [
         State,
