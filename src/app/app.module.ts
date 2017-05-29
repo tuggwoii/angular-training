@@ -36,7 +36,7 @@ import { InjectTreeComponent } from "app/components/chapters/dependency/componen
 
 //directives
 import { HighlightDirective } from "app/directives/highlight.directive";
-
+import { InjectTreeService } from "app/components/chapters/dependency/services/inject-tree.service";
 
 @NgModule({
     declarations: [
@@ -71,7 +71,8 @@ import { HighlightDirective } from "app/directives/highlight.directive";
         Broadcaster,
         Helpers,
         RouteGuard,
-        Resolver
+        Resolver,
+        //InjectTreeService
     ],
     bootstrap: [AppComponent]
 })

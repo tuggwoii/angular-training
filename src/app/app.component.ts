@@ -5,11 +5,16 @@ import { State } from './services/state';
 import { Helpers } from './services/helpers';
 import { Event } from './events/event';
 import { StorageService } from "app/modules/core/services/storage.service";
+import { InjectTreeService } from "app/components/chapters/dependency/services/inject-tree.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  /*
+  providers: [
+      InjectTreeService
+  ]*/
 })
 export class AppComponent {
 

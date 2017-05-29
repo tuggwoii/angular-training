@@ -2,5 +2,9 @@
 
 @Injectable()
 export class InjectTreeService {
+  
+    public check() {
+      console.log('Injection work!');
+    }
 
 }

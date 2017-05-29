@@ -12,6 +12,6 @@ import { InjectTreeService } from "app/components/chapters/dependency/services/i
 export class InjectTreeComponent {
 
     constructor(private inject: InjectTreeService) {
-
+        this.inject.check();
     }
 }
