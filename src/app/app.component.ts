@@ -18,6 +18,8 @@ import { InjectTreeService } from "app/components/chapters/dependency/services/i
 })
 export class AppComponent {
 
+    //public jquery: JQuery;
+
     public pageState = {
         ready: false
     };

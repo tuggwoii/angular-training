@@ -12,10 +12,10 @@ export class BaseComponent implements OnInit {
     public title: string;
     public isRoot: boolean;
     private routeSubscribe: any;
+    public a: number = 1;
 
     ngOnInit() {
         this.title = this.state.getPageTitle();
-        this.route.data.subscribe
         this.routeSubscribe = this.route.params.subscribe(params => {
             this.id = + params['id'];
         });

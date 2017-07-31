@@ -5,7 +5,11 @@
   overflow-x: hidden;
   overflow-y:scroll;
 }
-
+code {
+  display: block;
+  padding: 10px 20px;
+  margin-top: 5px;
+}
 .section {
   padding: 50px 30px;
   background-color: #fff;
@@ -212,6 +216,13 @@ sub {
 }
 .btn {
   min-width: 100px;
+}
+.ctb td{
+  border: 1px solid #fff;
+  padding: 5px;
+}
+a {
+  color: #ccc;
 }
 @media (max-width:1250px) {
   .space-bottom {

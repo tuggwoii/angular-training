@@ -1,0 +1,78 @@
+﻿<div class="col-md-12 section left">
+  <h1>{{title}}</h1>
+
+  <blockquote class="top-space">
+    This guide describes techniques for preparing and deploying an Angular application to a server running remotely. The techniques progress from easy but suboptimal to more optimal and more involved
+  </blockquote>
+</div>
+
+<div class="col-md-12 section grey left">
+
+
+  <div class="block">
+    <blockquote>
+      <b>
+        Simplest deployment
+      </b>
+    </blockquote>
+    <p>This is doing like run on local just copy everything to server</p>
+
+    <p>
+      1. Copy everything (or almost everything) from the local project folder to a folder on the server.
+    </p>
+    <p>
+      2. If you're serving the app out of a subfolder, edit a version of index.html to set the "base href" appropriately
+    </p>
+    <p>
+      3. Configure the server to redirect requests for missing files to index.html
+    </p>
+    <p>
+      4. Enable production (make sure enableProdMode(); on main.ts get execute)
+    </p>
+
+    <p style="color:red">This is not a production deployment. It's not optimized and it won't be fast for users. This is just for sharing progress or show something.</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>
+        Load npm package files from the web (SystemJS)
+      </b>
+    </blockquote>
+    <p>Out of date</p>
+    <p>Basic idai is to load a few files that we need instead of all in node_modules folder</p>
+    <p>Use webpack and rollup instead</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>
+        AOT Webpack and  Rollup
+      </b>
+    </blockquote>
+    <p>Already talk about is on previous chapter</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>
+        Fallback
+      </b>
+    </blockquote>
+    <p>Don't forget to set fallback every routes to index file</p>
+    <p>For IIS added similar thing to this on the web.config</p>
+
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Deployment and packing is not dead!</b>
+    </blockquote>
+    <p>
+      While I have doing this article, I have notice that things change really fast. Like the section of doing AOT we don't need to do a complex thing like that anymore
+    </p>
+    <p>By putting this command: ng build --prod --aot this will automatic do a AOT build for us </p>
+    <p>More Latest, By putting this command: ng build --prod, this will automatic do a AOT build for us! </p>
+    <p>Reference:  https://stackoverflow.com/questions/39167600/how-to-use-ahead-of-time-compiler-with-angular-cli-webpack</p>
+  </div>
+</div>

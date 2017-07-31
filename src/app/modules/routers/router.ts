@@ -13,6 +13,8 @@ import { AdminRoutes } from "app/routes/admin.routes";
 import { UnAuthorizeComponent } from "app/components/unauthorize/unauthorize.component";
 import { Resolver } from "app/services/resolver";
 import { InjectTreeComponent } from "app/components/chapters/dependency/components/inject-tree/inject-tree.component";
+import { AnatomyChapterComponent } from "app/components/chapters/anatomy/anatomy-chapter.component";
+import { DeploymentChapterComponent } from "app/components/chapters/deployment/deploymeny-chapter.component";
 
 const routes: Routes = [
     /*
@@ -64,6 +66,16 @@ const routes: Routes = [
         path: 'animation',
         component: AnimationComponent,
         data: { title: 'ANIMATION' }
+    },
+    {
+        path: 'anatomy',
+        component: AnatomyChapterComponent,
+        data: { title: 'ANATOMY' }
+    },
+    {
+        path: 'deployment',
+        component: DeploymentChapterComponent,
+        data: { title: 'DEPLOYMENT' }
     },
     {
         path: 'unauthorize',

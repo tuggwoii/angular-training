@@ -1,0 +1,497 @@
+﻿<div class="col-md-12 section left">
+  <h1>{{title}}</h1>
+
+  <blockquote class="top-space">
+    Angular's anatomy setup.
+  </blockquote>
+</div>
+
+<div class="col-md-12 section grey left">
+
+  <div class="block">
+    <blockquote>
+      <b>Start with clone a new project</b>
+    </blockquote>
+
+    <code>
+      npm install -g @angular/cli
+      <br />
+      ng new [project-name]
+      <br />
+      cd [project-name]
+      <br />
+      ng serve
+    </code>
+
+    <br />
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>What's in the project creator seed</b>
+    </blockquote>
+
+    <img src="/img/fg32.png" />
+    <br />
+    <br />
+
+    <table class="ctb">
+      <tbody>
+        <tr>
+          <th style="width: 20%">
+            File
+          </th>
+          <th style="width: 80%">
+            Purpose
+          </th>
+        </tr>
+        <tr>
+          <td>
+            app/app.component.ts
+          </td>
+          <td>
+            <p>
+              Defines the same <b>AppComponent</b> as the one in the QuickStart playground.
+              It is the <strong>root</strong> component of what will become a tree of nested components
+              as the application evolves.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>app/app.module.ts</b>
+          </td>
+          <td>
+            <p>
+              Defines <b>AppModule</b>, the  <a href="guide/bootstrapping" title="AppModule: the root module">root module</a> that tells Angular how to assemble the application.
+              Right now it declares only the <b>AppComponent</b>.
+              Soon there will be more components to declare.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>main.ts</b>
+          </td>
+          <td>
+            <p>
+              Compiles the application with the <a href="guide/glossary#jit">JIT compiler</a> and
+              <a href="guide/bootstrapping#main" title="bootstrap the application">bootstraps</a>
+              the application's main module (<b>AppModule</b>) to run in the browser.
+              The JIT compiler is a reasonable choice during the development of most projects and
+              it's the only viable choice for a sample running in a <em>live-coding</em> environment like Plunker.
+              You'll learn about alternative compiling and <a href="guide/deployment">deployment</a> options later in the documentation.
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="col-md-12 section blue left">
+
+  <h1>Advanced</h1>
+
+  <div class="block">
+    <blockquote>
+      <b>Anatomy of the Setup Project</b>
+    </blockquote>
+
+    <table class="ctb">
+      <tbody>
+        <tr>
+          <th>
+            File
+          </th>
+          <th>
+            Purpose
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <b>src/app/</b>
+          </td>
+          <td>
+            <p>      Angular application files go here.</p>
+            <p>
+              Ships with the "Hello Angular" sample's
+              <b>AppComponent</b>, <b>AppModule</b>, a component unit test (<b>app.component.spec.ts</b>), and
+              the bootstrap file, <b>main.ts</b>.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>e2e/</b>
+          </td>
+          <td>
+            <p>
+              <em>End-to-end</em> (e2e) tests of the application,
+              written in Jasmine and run by the
+              <a href="http://www.protractortest.org/" title="Protractor: end-to-end testing for Angular">protractor</a>
+              e2e test runner.
+            </p>
+            <p>      Initialized with an e2e test for the "Hello Angular" sample.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>node_modules/</b>
+          </td>
+          <td>
+            <p>      The <em>npm</em> packages installed with the <b>npm install</b> command.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>
+              .editorconfig<br>
+              .git/<br>
+              .gitignore<br>
+              .travis.yml
+            </b>
+          </td>
+          <td>
+            <p>
+              Tooling configuration files and folders.
+              Ignore them until you have a compelling reason to do otherwise.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>CHANGELOG.md</b>
+          </td>
+          <td>
+            <p>
+              The history of changes to the <em>QuickStart</em> repository.
+              Delete or ignore.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>favicon.ico</b>
+          </td>
+          <td>
+            <p>      The application icon that appears in the browser tab.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>index.html</b>
+          </td>
+          <td>
+            <p>
+              The application host page.
+              It loads a few essential scripts in a prescribed order.
+              Then it boots the application, placing the root <b>AppComponent</b>
+              in the custom <b>&lt;my-app&gt;</b> body tag.
+            </p>
+            <p>      The same <b>index.html</b> satisfies all documentation application samples.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>karma.conf.js</b>
+          </td>
+          <td>
+            <p>
+              Configuration for the <a href="https://karma-runner.github.io/1.0/index.html" title="Karma unit test runner">karma</a>
+              test runner described in the <a href="guide/testing">Testing</a> guide.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>karma-test-shim.js</b>
+          </td>
+          <td>
+            <p>
+              Script to run <a href="https://karma-runner.github.io/1.0/index.html" title="Karma unit test runner">karma</a>
+              with SystemJS as described in the <a href="guide/testing">Testing</a> guide.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>non-essential-files.txt</b>
+          </td>
+          <td>
+            <p>
+              A list of files that you can delete if you want to purge your setup of the
+              original QuickStart Seed testing and git maintenance artifacts.
+              See instructions in the optional
+              <a href="guide/setup#non-essential" title="Setup: Deleting non-essential files"><em>Deleting non-essential files</em></a> section.
+              <em>Do this only in the beginning to avoid accidentally deleting your own tests and git setup!</em>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>LICENSE</b>
+          </td>
+          <td>
+            <p>      The open source MIT license to use this setup code in your application.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>package.json</b>
+          </td>
+          <td>
+            <p>      Identifies <b>npm</b>package dependencies for the project.</p>
+            <p>
+              Contains command scripts for running the application,
+              running tests, and more. Enter <b>npm run</b> for a listing.
+              <a href="https://github.com/angular/quickstart/blob/master/README.md#npm-scripts" title="npm scripts for Angular documentation samples">Read more</a> about them.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>protractor.config.js</b>
+          </td>
+          <td>
+            <p>
+              Configuration for the
+              <a href="http://www.protractortest.org/" title="Protractor: end-to-end testing for Angular">protractor</a>
+              <em>end-to-end</em> (e2e) test runner.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>README.md</b>
+          </td>
+          <td>
+            <p>
+              Instruction for using this git repository in your project.
+              Worth reading before deleting.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>styles.css</b>
+          </td>
+          <td>
+            <p>      Global styles for the application. Initialized with an <b>&lt;h1&gt;</b> style for the QuickStart demo.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>systemjs<br>.config.js</b>
+          </td>
+          <td>
+            <p>
+              Tells the <strong>SystemJS</strong> module loader where to find modules
+              referenced in JavaScript <b>import</b> statements.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>systemjs<br>.config.extras.js</b>
+          </td>
+          <td>
+            <p>
+              Optional extra SystemJS configuration.
+              A way to add SystemJS mappings, such as for application <em>barrels</em>,
+              without changing the original <b>system.config.js</b>.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>tsconfig.json</b>
+          </td>
+          <td>
+            <p>
+              Tells the TypeScript compiler how to transpile TypeScript source files
+              into JavaScript files that run in all modern browsers.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>tslint.json</b>
+          </td>
+          <td>
+            <p>
+              The <b>npm</b> installed TypeScript linter inspects your TypeScript code
+              and complains when you violate one of its rules.
+            </p>
+            <p>
+              This file defines linting rules favored by the
+              <a href="guide/styleguide">Angular style guide</a> and by the authors of the documentation.
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="block">
+    <blockquote>
+      <b>Browser support</b>
+    </blockquote>
+    <img src="/img/fg33.png" />
+
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Polyfills</b>
+    </blockquote>
+    <p>Angular is built on the latest standards of the web platform. Targeting such a wide range of browsers is challenging because they do not support all features of modern browsers.</p>
+    <br/>
+    <br/>
+
+    <blockquote>
+      <b>Required</b>
+    </blockquote>
+    <img src="/img/fg34.png" />
+    <br />
+    <br />
+
+    <blockquote>
+      <b>Optional</b>
+    </blockquote>
+    <img src="/img/fg35.png" />
+    <br />
+    <br />
+
+    <blockquote>
+      <b>Suggested </b>
+    </blockquote>
+    <img src="/img/fg36.png" />
+    <br />
+    <br />
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Npm Packages</b>
+    </blockquote>
+    <p>1. Verify that you are running node v4.x.x or higher and npm 3.x.x or higher by running the commands node -v</p>
+    <p>2. During Setup, a package.json file is installed with a comprehensive starter set of packages as specified in the dependencies and devDependencies sections.</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>dependencies and devDependencies</b>
+    </blockquote>
+    <p>The package.json includes two sets of packages, dependencies and devDependencies.</p>
+    <code>Install all: npm install</code>
+    <code>Install only production: npm install --production</code>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>peerDependencies</b>
+    </blockquote>
+    <p>When npm installs packages listed in your dependencies section, it also installs the packages listed within their packages dependencies sections. The process is recursive</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>TypeScript Configuration</b>
+    </blockquote>
+    <p>TypeScript is a primary language for Angular application development. It is a superset of JavaScript with design-time support for type safety and tooling.</p>
+    <p>Browsers can't execute TypeScript directly. Typescript must be "transpiled" into JavaScript using the tsc compiler, which requires some configuration.</p>
+    <br />
+    <img src="/img/fg37.png" />
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>noImplicitAny and suppressImplicitAnyIndexErrors</b>
+    </blockquote>
+    <p>"noImplicitAny": not allow any type? (true:false)</p>
+    <br />
+  </div>
+
+
+  <div class="block">
+    <blockquote>
+      <b>Installable typings files</b>
+    </blockquote>
+    <p>Many JavaScript libraries, such as jQuery, the Jasmine testing library, and Angular, extend the JavaScript environment with features and syntax that the TypeScript compiler doesn't recognize natively. When the compiler doesn't recognize something, it throws an error.</p>
+    <code>Install for types: npm install @types/jasmine --save-dev</code>
+    <p>Demo: AppComponent line 21</p>
+    <br />
+  </div>
+
+  <h2>Ahead-of-Time Compilation</h2>
+
+  <div class="block">
+    <blockquote>
+      <b>compilation</b>
+    </blockquote>
+    <p>You can compile the app in the browser, at runtime, as the application loads, using the just-in-time (JIT) compiler. This is the standard development approach shown throughout the documentation. It's great but it has shortcomings.</p>
+  
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>Why do AOT compilation?</b>
+    </blockquote>
+    <p>Faster rendering</p>
+    <p>Eliminating separate ajax requests for source files (js, html, css)</p>
+    <p>Smaller download size</p>
+    <p>No need to download the Angular compiler</p>
+    <p>Better security</p>
+  </div>
+
+  <div class="block">
+    <blockquote>
+      <b>
+        How to compile witt AOT
+      </b>
+    </blockquote>
+    <p>
+      1. install: npm install @angular/compiler-cli @angular/platform-server --save
+    </p>
+    <p>
+      2. add file tsconfig-aot.json to the root folder, copy config from tsconfig.json
+    </p>
+    <p>
+      3. copy this config into the file
+      <img src="/img/fg38.png" style="display:block"/>
+    </p>
+    <p>
+      4. Run command: "node_modules/.bin/ngc" -p tsconfig-aot.json
+    </p>
+
+    <p>After these steps, it will generate NgFactories Module for us.</p>
+    <p style="background-color:#ff0000;color:#fff;"> Do not edit the NgFactories! Re-compilation replaces these files and all edits will be lost.!!!!!!!</p>
+ 
+    <p>
+      5. Go and change the bootstrap way to AOT (main.ts file) to look like this:
+    </p>
+
+    <code>
+      import {{'{'}} platformBrowser {{'}'}}    from '@angular/platform-browser';
+      <br />
+      import {{'{'}} AppModuleNgFactory {{'}'}} from '../aot/src/app/app.module.ngfactory';
+      <br />
+      platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
+    </code>
+
+    <p>6. Re-buld it again: "node_modules/.bin/ngc" -p tsconfig-aot.json</p>
+
+    <p>7. Install rollup (use for bundle a file, we can use other tool instead):</p>
+    <code>npm install rollup rollup-plugin-node-resolve rollup-plugin-commonjs rollup-plugin-uglify --save-dev</code>
+
+    <br />
+    <p>8.Add rollup-config.js at root and add this code in:</p>
+    <img src="/img/fg39.png" style="display:block" />
+    <br/>
+    <p>9. Pack the build file with command: "node_modules/.bin/rollup\"  -c rollup-config.js</p>
+    <p>Done!</p>
+  </div>
+
+</div>

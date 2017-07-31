@@ -24,7 +24,11 @@
         shell: {
             build: {
                 command: 'ng build'
-            }
+            },
+            /*
+            lint: {
+                command: 'ng lint'
+            }*/
         }
 
     });

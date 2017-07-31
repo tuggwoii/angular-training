@@ -16,6 +16,7 @@ export class NgModuleChapterComponent extends BaseComponent implements OnInit  {
     ngOnInit() {
         this.textInStorage = this.storage.getText();
         console.log('TEXT IN STORAGE SERVICE: ' + this.textInStorage);
+        super.ngOnInit();
     }
 
     constructor(private router: Router, public state: State, public route: ActivatedRoute, private storage: StorageService) {

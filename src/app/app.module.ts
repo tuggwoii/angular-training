@@ -33,6 +33,8 @@ import { AnimationComponent } from "app/components/chapters/route/animation.comp
 import { UnAuthorizeComponent } from "app/components/unauthorize/unauthorize.component";
 import { TitleComponent } from "app/components/title/title.component";
 import { InjectTreeComponent } from "app/components/chapters/dependency/components/inject-tree/inject-tree.component";
+import { AnatomyChapterComponent } from "app/components/chapters/anatomy/anatomy-chapter.component";
+import { DeploymentChapterComponent } from "app/components/chapters/deployment/deploymeny-chapter.component";
 
 //directives
 import { HighlightDirective } from "app/directives/highlight.directive";
@@ -54,7 +56,9 @@ import { InjectTreeService } from "app/components/chapters/dependency/services/i
         UnAuthorizeComponent,
         HighlightDirective,
         TitleComponent,
-        InjectTreeComponent
+        InjectTreeComponent,
+        AnatomyChapterComponent,
+        DeploymentChapterComponent
     ],
     imports: [
         BrowserModule,
